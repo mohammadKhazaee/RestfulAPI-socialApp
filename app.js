@@ -15,7 +15,7 @@ const feedRoutes = require('./routes/feed')
 const authRoutes = require('./routes/auth')
 
 const PORT = process.env.PORT
-const LIARA_URL = process.env.LIARA_URL || 'localhost'
+const LIARA_URL = process.env.LIARA_URL || 'http://localhost:' + PORT
 const DATABASE_URI = process.env.DATABASE_URI
 
 const options = {
@@ -27,7 +27,7 @@ const options = {
 		},
 		servers: [
 			{
-				url: `http://${LIARA_URL}:${PORT}`,
+				url: `${LIARA_URL}`,
 			},
 		],
 		components: {
