@@ -14,9 +14,9 @@ const compression = require('compression')
 const feedRoutes = require('./routes/feed')
 const authRoutes = require('./routes/auth')
 
-const PORT = process.env.PORT
+const PORT = process.env.PORT || 8080
 const LIARA_URL = process.env.LIARA_URL || 'http://localhost:' + PORT
-const DATABASE_URI = process.env.DATABASE_URI
+const DATABASE_URI = process.env.DATABASE_URI || 'mongodb://localhost:27017/socialApp'
 
 const options = {
 	definition: {
@@ -110,7 +110,7 @@ mongoose
 		useNewUrlParser: true,
 	})
 	.then((result) => {
-		const server = app.listen(PORT || 8080)
+		const server = app.listen(PORT)
 		const io = require('./socket').init(server)
 		io.on('connection', (socket) => {
 			console.log('Client connected to ' + LIARA_URL)
