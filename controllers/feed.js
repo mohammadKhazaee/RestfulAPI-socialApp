@@ -39,8 +39,6 @@ exports.createPost = async (req, res, next) => {
 		error.statusCode = 422
 		return next(error)
 	}
-	console.log('koooooooooooooooooooooooooooniiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii')
-	console.log(req.file)
 	if (!req.file) {
 		const error = new Error('No image provided.')
 		error.statusCode = 422
